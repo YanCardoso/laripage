@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+// Estilo para a div centralizada com tamanho fixo
+.centeredBox {
+  width: 420px;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+.boxButtons {
+  display: flex;
+  width: inherit;
+  justify-content: center;
+}
+
+// Estilo para os botões
+.button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0070f3;
+  color: white;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #005bb5;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modalContent {
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  animation: growAndFadeIn 10s ease-in-out forwards;
+}
+
+/* Animação */
+@keyframes growAndFadeIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* Limite de tamanho para a imagem */
+  max-height: 80vh;
+}
+
+.newsTicker {
+	width: 100%;
+  height: 40px;
+	overflow: hidden; // Esconde o texto fora do contêiner
+	background-color: #000; // Cor de fundo da barra
+	color: #fff; // Cor do texto
+	position: absolute;
+	bottom: 0;
+	white-space: nowrap; // Evita que o texto quebre
+}
+
+.newsTicker h1 {
+	display: inline-block;
+	padding-left: 100%; // Começa fora da tela
+	animation: ticker 6s linear infinite; // Animação de 10 segundos
+  font-size: 16px; /* Ajuste o tamanho da fonte se necessário */
+  height: 100%; /* Para ocupar toda a altura da barra */
+}
+
+@keyframes ticker {
+	0% {
+		transform: translateX(10%); // Começa fora da tela à esquerda
+	}
+	100% {
+		transform: translateX(-100%); // Termina fora da tela à direita
+	}
+}
